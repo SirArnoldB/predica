@@ -8,6 +8,10 @@ views = Blueprint('views', __name__)
 def index():
     return render_template("index.html")
 
+@views.route('/predica')
+def predica():
+    return render_template("index.html")
+
 @views.route('/simulate', methods=['GET','POST'])
 def simulate():
     if request.method == "POST":
