@@ -1,13 +1,697 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Hello World Man</h1>
-    <p>{{res}}</p>
-</body>
+  <head>
+    {% block head %}
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Predica</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href=" {{ url_for('static', filename='img/apple-touch-icon.png/') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32x32.png/') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon-16x16.png') }}">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"/>
+    <link 
+      href="static/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="static/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="static/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Variables CSS File -->
+    <link href="static/css/variables-blue.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="static/css/main.css" rel="stylesheet" />
+    {% endblock %}
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top" data-scrollto-offset="0">
+      <div
+        class="container-fluid d-flex align-items-center justify-content-between"
+      >
+        <a
+          href="index.html"
+          class="logo d-flex align-items-center scrollto me-auto me-lg-0"
+        >
+          <!-- Predica Logo -->
+          <img
+            src="static/img/logo.png"
+            class="image-fluid"
+            alt="Predica logo."
+          />
+        </a>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li>
+              <a class="nav-link scrollto" href="index.html#about">About</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="index.html#services"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="index.html#team">Team</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="index.html#contact">Contact</a>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle d-none"></i>
+        </nav>
+        <!-- .navbar -->
+
+        <!-- TODO: add page to navigate to when the user clicks on get started. -->
+        <a class="btn-getstarted scrollto" href="index.html#about"
+          >Get Started</a
+        >
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <section id="hero-animated" class="hero-animated d-flex align-items-center">
+      <div
+        class="container d-flex flex-column justify-content-center align-items-center text-center position-relative"
+        data-aos="zoom-out"
+      >
+        <img
+          src="static/img/predica-house-transparent.png"
+          class="img-fluid animated"
+        />
+        <h2>Welcome to <span>Predica</span></h2>
+        <p>The smart move to secure your future.</p>
+        <div class="d-flex">
+          <!-- TODO: add page to navigate to when the user clicks on get started. -->
+          <a href="#about" class="btn-get-started scrollto">Get Started</a>
+          <!-- TODO: add a video about the predica app. -->
+          <a
+            href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+            class="glightbox btn-watch-video d-flex align-items-center"
+            ><i class="bi bi-play-circle"></i><span>Watch Video</span></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <main id="main">
+
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <h2>About Us</h2>
+            <p>
+              We believe that there is no place like home, and we want to
+              protect that for you.
+            </p>
+          </div>
+
+          <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-5">
+              <div class="about-img">
+                <img src="static/img/about-us.png" class="img-fluid about-us" alt="" />
+              </div>
+            </div>
+
+            <div class="col-lg-7">
+              <h3 class="pt-0 pt-lg-5">
+                All about Predica, and taking hold of the future.
+              </h3>
+
+              <!-- Tabs -->
+              <ul class="nav nav-pills mb-3">
+                <li>
+                  <a class="nav-link active" data-bs-toggle="pill" href="#tab1"
+                    >Background</a
+                  >
+                </li>
+                <li>
+                  <a class="nav-link" data-bs-toggle="pill" href="#tab2"
+                    >Predica</a
+                  >
+                </li>
+                <li>
+                  <a class="nav-link" data-bs-toggle="pill" href="#tab3"
+                    >Future Outlook</a
+                  >
+                </li>
+              </ul>
+              <!-- End Tabs -->
+
+              <!-- Tab Content -->
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="tab1">
+                  <p class="fst-italic">Housing Insecurity</p>
+
+                  <div class="d-flex align-items-center mt-4">
+                    <i class="bi bi-check2"></i>
+                    <h4>Housing Affordability</h4>
+                  </div>
+                  <p>
+                    The U.S. was facing a crisis-level housing affordability
+                    issue, especially for low-income households, even before the
+                    coronavirus pandemic. In 2018, a
+                    <a
+                      href="https://www.jchs.harvard.edu/sites/default/files/Harvard_JCHS_Americas_Rental_Housing_2020.pdf"
+                      target="_blank"
+                      >quarter of renter households</a
+                    >
+                    — 10.9 million — were spending more than half of their
+                    income on rent. When the pandemic hit, its
+                    <a
+                      href="https://www.zillow.com/research/nfha-pandemic-impacts-2021-29905/"
+                      target="_blank"
+                      >impacts</a
+                    >
+                    were felt more strongly by households with lower incomes, by
+                    renters and by people of color.
+                  </p>
+
+                  <div class="d-flex align-items-center mt-4">
+                    <i class="bi bi-check2"></i>
+                    <h4>Housing as a burden on households.</h4>
+                  </div>
+                  <p>
+                    Housing is considered a burden on a household when it costs
+                    more than 30% of the household’s income, leaving less money
+                    available for groceries, transportation, childcare and
+                    bills. Beyond that, communities where people spend more than
+                    32% of their income on rent can expect a more
+                    <a
+                      href="https://www.zillow.com/research/homelessness-rent-affordability-22247/"
+                      target="_blank"
+                      >rapid increase in homelessness</a
+                    >. <br /><br />
+                    In 2019,
+                    <a
+                      href="https://www.habitat.org/costofhome/2020-state-nations-housing-report-lack-affordable-housing"
+                      target="_blank"
+                      >37.1 million households</a
+                    >
+                    were “housing cost burdened,” spending 30% or more of their
+                    income on housing, representing 30.2% of all households
+                    nationwide. One in seven households — 17.6 million in total
+                    — were “severely cost burdened,” spending half or more of
+                    their income on housing.
+                  </p>
+
+                  <div class="d-flex align-items-center mt-4">
+                    <i class="bi bi-check2"></i>
+                    <h4>Challenge</h4>
+                  </div>
+                  <p>
+                    How can data be used to provide early warnings of housing
+                    vulnerability, both for individuals and community groups, to
+                    avoid evictions and homelessness?
+                  </p>
+                </div>
+                <!-- End Background Content -->
+
+                <div class="tab-pane fade show" id="tab2">
+                  <p class="fst-italic">
+                    The smart move to take hold of the future.
+                  </p>
+
+                  <div class="d-flex align-items-center mt-4">
+                    <i class="bi bi-check2"></i>
+                    <h4>Summary</h4>
+                  </div>
+                  <p>
+                    Predica is an intelligent tool that utilizes current data
+                    trends in the housing and job sector to predict housing
+                    security for a user. It also seeks to provide actionable
+                    steps that can possibly reduce the user’s housing insecurity
+                    or mitigate any challenges that the user may face because of
+                    their situation. It also seeks to provide these predictions
+                    in a timely fashion that enables the user to be constantly
+                    aware of where they stand when it comes to housing security.
+                  </p>
+                </div>
+                <!-- End Predica Content -->
+
+                <div class="tab-pane fade show" id="tab3">
+                  <p class="fst-italic">
+                    What's the future of Predica?
+                  </p>
+                  </p>
+
+                  <div class="d-flex align-items-center mt-4">
+                    <i class="bi bi-check2"></i>
+                    <h4>
+                      Servivices 
+                    </h4>
+                  </div>
+                  <p>
+                    What other services can we add?
+                  </p>
+
+                  <div class="d-flex align-items-center mt-4">
+                    <i class="bi bi-check2"></i>
+                    <h4>Features</h4>
+                  </div>
+                  <p>
+                    Any additional features?
+                  </p>
+
+                  <div class="d-flex align-items-center mt-4">
+                    <i class="bi bi-check2"></i>
+                    <h4>Impact on the community?</h4>
+                  </div>
+                  <p>
+                    What's the projected impact of Predica on the community?
+                  </p>
+                </div>
+                <!-- End Future Outlook Content -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End About Section -->
+
+      <!-- ======= Services Section ======= -->
+      <section id="services" class="services">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <h2>Our Services</h2>
+            <p></p>
+          </div>
+
+          <div class="row gy-5">
+            <div
+              class="col-xl-4 col-md-6"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
+              <div class="service-item">
+                <div class="img">
+                  <img
+                    src="static/img/services-1.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+                <div class="details position-relative">
+                  <div class="icon">
+                    <i class="bi bi-bullseye"></i>
+                  </div>
+                  <a href="#" class="stretched-link">
+                    <h3>Predica Score</h3>
+                  </a>
+                  <p>
+                    We use your data together with current data trends in the
+                    housing and job sector to predict your housing security. We
+                    seek to give you an approximation of where you stand given
+                    your current situation.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- End Predica Score -->
+
+            <div
+              class="col-xl-4 col-md-6"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            >
+              <div class="service-item">
+                <div class="img">
+                  <img
+                    src="static/img/services-5.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+                <div class="details position-relative">
+                  <div class="icon">
+                    <i class="bi bi-activity"></i>
+                  </div>
+                  <a href="#" class="stretched-link">
+                    <h3>Insights</h3>
+                  </a>
+                  <p>
+                    Our goal is not just to give you an approximate score, but we also seek to give you actionable steps and insights that can help you stay informed about your future and how you can prepare for it.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- End Insights -->
+
+            <div
+              class="col-xl-4 col-md-6"
+              data-aos="zoom-in"
+              data-aos-delay="400"
+            >
+              <div class="service-item">
+                <div class="img">
+                  <img
+                    src="static/img/services-2.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+                <div class="details position-relative">
+                  <div class="icon">
+                    <i class="bi bi-broadcast"></i>
+                  </div>
+                  <a href="#" class="stretched-link">
+                    <h3>Personalized Alerts</h3>
+                  </a>
+                  <p>
+                    We give you the power to decide how and when you would like to receive notifications about changes in your predica score for a specific period in a specific area.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- End Personalized Alerts -->
+          </div>
+        </div>
+      </section>
+      <!-- End Services Section -->
+
+      <!-- ======= Team Section ======= -->
+      <section id="team" class="team">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <h2>Our Team</h2>
+          </div>
+
+          <div class="row">
+            <div
+              class="col-lg-3 col-md-6 d-flex align-items-stretch"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
+              <div class="team-member">
+                <div class="member-img">
+                  <img
+                    src="static/img/team/arnold_profile.jpeg"
+                    class="img-fluid img-responsive profile-img"
+                    alt=""
+                  />
+                </div>
+                <div class="member-info">
+                  <div class="social">
+                    <a
+                      href="https://www.linkedin.com/in/arnoldbhebhe/"
+                      target="_blank"
+                      ><i class="bi bi-linkedin"></i
+                    ></a>
+                  </div>
+                  <h4>Arnold Bhebhe</h4>
+                  <span>Web Development, UX/UI</span>
+                </div>
+              </div>
+            </div>
+            <!-- End Team Member -->
+
+            <div
+              class="col-lg-3 col-md-6 d-flex align-items-stretch"
+              data-aos="zoom-in"
+              data-aos-delay="400"
+            >
+              <div class="team-member">
+                <div class="member-img">
+                  <img
+                    src="static/img/team/best_profile.jpeg"
+                    class="img-fluid img-responsive profile-img"
+                    alt=""
+                  />
+                </div>
+                <div class="member-info">
+                  <div class="social">
+                    <a
+                      href="https://www.linkedin.com/in/best-olunusi/"
+                      target="_blank"
+                      ><i class="bi bi-linkedin"></i
+                    ></a>
+                  </div>
+                  <h4>Best Olunusi</h4>
+                  <span>Backend Development</span>
+                </div>
+              </div>
+            </div>
+            <!-- End Team Member -->
+
+            <div
+              class="col-lg-3 col-md-6 d-flex align-items-stretch"
+              data-aos="zoom-in"
+              data-aos-delay="600"
+            >
+              <div class="team-member">
+                <div class="member-img">
+                  <img
+                    src="static/img/team/robert_profile.jpeg"
+                    class="img-fluid img-responsive profile-img"
+                    alt=""
+                  />
+                </div>
+                <div class="member-info">
+                  <div class="social">
+                    <a
+                      href="https://www.linkedin.com/in/robert-mukuchura/"
+                      target="_blank"
+                      ><i class="bi bi-linkedin"></i
+                    ></a>
+                  </div>
+                  <h4>Robert Mukuchura</h4>
+                  <span>Web Development / UX/UI </span>
+                </div>
+              </div>
+            </div>
+            <!-- End Team Member -->
+            <!-- class="col-lg-3 col-md-6 d-flex align-items-stretch -->
+            <div
+              class="col-lg-3 col-md-6 d-flex align-items-stretch"
+              data-aos="zoom-in"
+              data-aos-delay="600"
+            >
+              <div class="team-member">
+                <div class="member-img">
+                  <img
+                    src="static/img/team/lucky_profile.jpeg"
+                    class="img-fluid img-responsive profile-img"
+                    alt=""
+                  />
+                </div>
+                <div class="member-info">
+                  <div class="social">
+                    <a
+                      href="https://www.linkedin.com/in/lucky-chitundu/"
+                      target="_blank"
+                      ><i class="bi bi-linkedin"></i
+                    ></a>
+                  </div>
+                  <h4>Luck Chitundu</h4>
+                  <span>Machine Learning</span>
+                </div>
+              </div>
+            </div>
+            <!-- End Team Member -->
+          </div>
+        </div>
+      </section>
+      <!-- End Team Section -->
+
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="section-header">
+            <h2>Contact Us</h2>
+          </div>
+        </div>
+
+        <div class="map">
+          <!-- Alabama State University -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3370.096958047339!2d-86.29400246560631!3d32.36294444709699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x888e81a727ec4d5f%3A0x22fd5ac7325e3075!2sAlabama%20State%20University!5e0!3m2!1sen!2sus!4v1662922622241!5m2!1sen!2sus"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <!-- End Google Maps -->
+
+        <div class="container">
+          <div class="row gy-5 gx-lg-5">
+            <div class="col-lg-4">
+              <div class="info">
+                <h3>Get in touch</h3>
+                <p>
+                  Want to check in with our team? We're here for you - just fill
+                  this form to connect with our team!
+                </p>
+
+                <div class="info-item d-flex">
+                  <i class="bi bi-geo-alt flex-shrink-0"></i>
+                  <div>
+                    <h4>Location:</h4>
+                    <p>915 South Jackson Street, Montgomery, AL 36104</p>
+                  </div>
+                </div>
+                <!-- End Info Item -->
+
+                <div class="info-item d-flex">
+                  <i class="bi bi-envelope flex-shrink-0"></i>
+                  <div>
+                    <h4>Email:</h4>
+                    <p>info@predica.com</p>
+                  </div>
+                </div>
+                <!-- End Info Item -->
+
+                <div class="info-item d-flex">
+                  <i class="bi bi-phone flex-shrink-0"></i>
+                  <div>
+                    <h4>Call:</h4>
+                    <p>+1 334 221 2315</p>
+                  </div>
+                </div>
+                <!-- End Info Item -->
+              </div>
+            </div>
+
+            <div class="col-lg-8">
+              <form
+                action="forms/contact.php"
+                method="post"
+                role="form"
+                class="php-email-form"
+              >
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input
+                      type="text"
+                      name="name"
+                      class="form-control"
+                      id="name"
+                      placeholder="Your Name"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      id="email"
+                      placeholder="Your Email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="subject"
+                    id="subject"
+                    placeholder="Subject"
+                    required
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <textarea
+                    class="form-control"
+                    name="message"
+                    placeholder="Message"
+                    required
+                  ></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">
+                    Your message has been sent. Thank you!
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit">Send Message</button>
+                </div>
+              </form>
+            </div>
+            <!-- End Contact Form -->
+          </div>
+        </div>
+      </section>
+      <!-- End Contact Section -->
+    </main>
+
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+      <div class="footer-legal text-center">
+        <div
+          class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center"
+        >
+          <div
+            class="d-flex flex-column align-items-center align-items-lg-start"
+          >
+            <div class="copyright">
+              &copy; Copyright <strong><span>Predica</span></strong
+              >. All Rights Reserved
+            </div>
+            <div class="credits">
+              Design inspired by
+              <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+          </div>
+
+          <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a
+      href="#"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='/vendor/aos/aos.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+  </body>
 </html>
