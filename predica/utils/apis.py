@@ -6,7 +6,7 @@ from .ml_models import housing_prices_model
 from functools import cache
 
 headers = {
-    "Authorization": "Bearer 85b4142dad06b05fae0534775810d35e"
+    "Authorization": "Bearer "
 }
 
 @cache
