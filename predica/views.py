@@ -20,9 +20,6 @@ def signup():
         return redirect(url_for('views.predica', name=name))
     return render_template("signup.html")
 
-# def signup():
-#     return render_template("signup.html")
-
 @views.route('/simulate', methods=['GET','POST'])
 def simulate():
     if request.method == "POST":
