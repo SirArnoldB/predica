@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from os import path
+import os
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
@@ -8,7 +8,7 @@ DB_NAME = "database.db"
 
 def create_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = 'randomstringthatservesasscretkey'
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
@@ -22,5 +22,5 @@ def create_app():
 
 
 def create_database(app):
-    if not path.exists('predica/' + DB_NAME):
+    if not os.path.exists('predica/' + DB_NAME):
         db.create_all(app=app)
