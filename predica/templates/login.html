@@ -13,12 +13,15 @@
 <style>
 body {
 	color: #fff;
+	/* background: hsl(205, 100%, 91%); */
+	/* background-image: url('https://i.postimg.cc/CKmXCpbg/Untitled-design-2.png'); */
 	font-family: 'Roboto', sans-serif;
 	background: url('https://i.postimg.cc/zB4qBX8G/Untitled-design-5.png') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: 100%;
+  
 }
 .form-control {
 	height: 41px;
@@ -35,7 +38,7 @@ body {
 .signup-form {
 	width: 400px;
 	margin: 30px auto;
-	margin-top: 17.5%;
+    margin-top: 15%;
 }
 .signup-form form {
 	color: #999;
@@ -100,33 +103,23 @@ body {
 
 <div class="signup-form">
     
-    <form action="{{url_for('views.signup')}}" method="POST">
-		<h2>Sign Up</h2>
-		<p>Please fill in this form to create an account!</p>
+    <form action="predica.html" method="post">
+		<h2>Log In</h2>
+		<p>Please fill in this form to log in!</p>
 		<hr>
         <div class="form-group">
 			<div class="row">
-				<div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
-				<div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
+				<div class="col"><input type="email" class="form-control" name="email" placeholder="E-mail" required="required"></div>
+				<div class="col"><input type="text" class="form-control" name="password" placeholder="Password" required="required"></div>
 			</div>        	
         </div>
-        <div class="form-group">
-        	<input type="email" class="form-control" name="email" placeholder="Email" required="required">
-        </div>
+        
 		<div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+            <button type="submit" class="btn btn-primary btn-lg">Login</button>
         </div>
-		<div class="form-group">
-            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
-        </div>        
-        <div class="form-group">
-			<label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
-		</div>
-		<div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
-        </div>
+        <div class="hint-text">Forgot password? <a href="#">Click here</a></div>
     </form>
-	<div class="hint-text">Already have an account? <a href="#">Login here</a></div>
+	
 </div>
 </body>
 </html>
