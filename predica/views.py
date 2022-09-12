@@ -1,3 +1,4 @@
+from crypt import methods
 from flask import Blueprint, render_template, request, redirect, url_for
 from . import db
 from .utils.apis import get_avg_housing_increase_or_decrease
@@ -8,9 +9,19 @@ views = Blueprint('views', __name__)
 def index():
     return render_template("index.html")
 
-@views.route('/predica')
+@views.route('/predica', methods=['GET', 'POST'])
 def predica():
-    return render_template("index.html")
+    return render_template("predica.html", name=request.args.get('name'))
+
+@views.route('/signup', methods = ['GET', 'POST'])
+def signup():
+    if request.method == "POST":
+        name = request.form['first_name']
+        return redirect(url_for('views.predica', name=name))
+    return render_template("signup.html")
+
+# def signup():
+#     return render_template("signup.html")
 
 @views.route('/simulate', methods=['GET','POST'])
 def simulate():

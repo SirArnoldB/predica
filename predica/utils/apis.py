@@ -29,7 +29,6 @@ def get_avg_housing_increase_or_decrease(zipCode, num_years):
             percent_diffs.append(0)
     return sum(percent_diffs) / len(percent_diffs)
 
-
 def get_historical_pricing(address):
     url = f"https://api.bridgedataoutput.com/api/v2/pub/assessments?address.full='{address}'"
     historical_data = requests.get(url=url, headers=headers).json()['bundle']

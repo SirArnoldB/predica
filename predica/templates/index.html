@@ -29,8 +29,7 @@
     </nav>
     <!-- .navbar -->
 
-    <!-- TODO: add page to navigate to when the user clicks on get started. -->
-    <a class="btn-getstarted scrollto" href="index.html#about">Get Started</a>
+    <a class="btn-getstarted scrollto" href="{{url_for('views.signup')}}">Get Started</a>
   </div>
 </header>
 <!-- End Header -->
@@ -42,8 +41,7 @@
     <h2>Welcome to <span>Predica</span></h2>
     <p>The smart move to secure your future.</p>
     <div class="d-flex">
-      <!-- TODO: add page to navigate to when the user clicks on get started. -->
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+      <a href="{{url_for('views.signup')}}" class="btn-get-started scrollto">Get Started</a>
       <!-- TODO: add a video about the predica app. -->
       <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
         class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch
