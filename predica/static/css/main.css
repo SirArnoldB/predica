@@ -248,6 +248,12 @@ section {
   font-weight: 500;
 }
 
+.round-button-circle {
+  border-radius: 40% !important;
+  background-color: #ff7377 !important;
+  box-shadow: 0 0 3px gray;
+}
+
 .header .btn-getstarted,
 .header .btn-getstarted:focus {
   font-size: 16px;
@@ -1211,6 +1217,13 @@ section {
   line-height: 0;
   margin-right: 8px;
   color: var(--color-primary);
+}
+
+/*--------------------------------------------------------------
+# Dashboard Section
+--------------------------------------------------------------*/
+.dashboard-row {
+  padding-bottom: 4em;
 }
 
 /*--------------------------------------------------------------
