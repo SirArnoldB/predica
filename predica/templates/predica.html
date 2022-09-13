@@ -52,12 +52,10 @@
                             <div class="icon">
                                 <i class="bi bi-bullseye"></i>
                             </div>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#predica-info">Open Modal</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#predica-info">Predica Info</button>
                             <p>
-                                We use your data together with current data trends in the
-                                housing and job sector to predict your housing security. We
-                                seek to give you an approximation of where you stand given
-                                your current situation.
+                                Update your preidca info to see the your current housing security status.
                             </p>
                         </div>
                     </div>
@@ -73,14 +71,10 @@
                             <div class="icon">
                                 <i class="bi bi-activity"></i>
                             </div>
-                            <a href="#" class="stretched-link">
-                                <h3>Insights</h3>
-                            </a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#predica-score">Predica Score</button>
                             <p>
-                                Our goal is not just to give you an approximate score, but we also seek to give you
-                                actionable steps and
-                                insights that can help you stay informed about your future and how you can prepare for
-                                it.
+                                Check out your Predica score breakdown and analysis.
                             </p>
                         </div>
                     </div>
@@ -96,13 +90,10 @@
                             <div class="icon">
                                 <i class="bi bi-broadcast"></i>
                             </div>
-                            <a href="#" class="stretched-link">
-                                <h3>Personalized Alerts</h3>
-                            </a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#predica-insights">Insights</button>
                             <p>
-                                We give you the power to decide how and when you would like to receive notifications
-                                about changes in
-                                your predica score for a specific period in a specific area.
+                                Insights generated based on your current predica score. Review insights to learn more.
                             </p>
                         </div>
                     </div>
@@ -120,14 +111,10 @@
                             <div class="icon">
                                 <i class="bi bi-bullseye"></i>
                             </div>
-                            <a href="#" class="stretched-link">
-                                <h3>Predica Score</h3>
-                            </a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#predica-alerts">Personalized Alerts</button>
                             <p>
-                                We use your data together with current data trends in the
-                                housing and job sector to predict your housing security. We
-                                seek to give you an approximation of where you stand given
-                                your current situation.
+                                Customize how you want to be notified about changes in your housing insecurity score.
                             </p>
                         </div>
                     </div>
@@ -143,14 +130,11 @@
                             <div class="icon">
                                 <i class="bi bi-activity"></i>
                             </div>
-                            <a href="#" class="stretched-link">
-                                <h3>Insights</h3>
-                            </a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#predica-community">Community</button>
                             <p>
-                                Our goal is not just to give you an approximate score, but we also seek to give you
-                                actionable steps and
-                                insights that can help you stay informed about your future and how you can prepare for
-                                it.
+                                Connect with our community and learn more about how others are using Predica to improve
+                                their lieves.
                             </p>
                         </div>
                     </div>
@@ -166,13 +150,10 @@
                             <div class="icon">
                                 <i class="bi bi-broadcast"></i>
                             </div>
-                            <a href="#" class="stretched-link">
-                                <h3>Personalized Alerts</h3>
-                            </a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#predica-notes">Notes and Archives</button>
                             <p>
-                                We give you the power to decide how and when you would like to receive notifications
-                                about changes in
-                                your predica score for a specific period in a specific area.
+                                Review your saved items.
                             </p>
                         </div>
                     </div>
@@ -188,210 +169,261 @@
 
 <!-- Predica Info Modal-->
 <div class="container">
-    <h2>Modal Example</h2>
-    <!-- Trigger the modal with a button -->    
-    <!-- Modal -->
     <div class="modal fade" id="predica-info" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
+                    <h4 class="modal-title">Predica Info</h4>
                 </div>
                 <div class="modal-body">
                     <form action="{{url_for('views.index')}}" method="POST">
-                        <div class="signup-form">
-    
-                            <form action="predica.html" method="POST">
-                                <h2>Please provide the following details</h2>
-                                <p>Please fill in this form to create create a Predica Profile</p>
-                                <hr>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col form-group">
-                                            <select class="form-control" id="exampleFormControlSelect1" name="gender">
-                                                <option disabled selected>Select gender</option>
-                                                <option>Female</option>
-                                                <option>Male</option>
-                                                <option>Prefer not to say</option>
-                                            </select>
-                                        </div>
+                        <form action="predica.html" method="POST">
+                            <h2>Please provide the following details</h2>
+                            <p>Please fill in this form to create create a Predica Profile</p>
+                            <hr>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col form-group">
+                                        <select class="form-control" id="exampleFormControlSelect1" name="gender">
+                                            <option disabled selected>Select gender</option>
+                                            <option>Female</option>
+                                            <option>Male</option>
+                                            <option>Prefer not to say</option>
+                                        </select>
                                     </div>
-                                    <div class="row">
-                                        <div class="col form-group">
-                                            <select class="form-control" id="exampleFormControlSelect1" name="race">
-                                                <option value="" disabled selected>Select Race</option>
-                                                <option>American Indian or Alaska Native</option>
-                                                <option>Asian</option>
-                                                <option>Black or African American</option>
-                                                <option> Native Hawaiian or Other Pacific Islander</option>
-                                                <option>White</option>
-                                                <option>Prefer not to say</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col form-group">
-                                            <input type="int" class="form-control" name="zip_code" placeholder="Zip Code"
-                                                required="required">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col form-group">
-                                            <input type="float" class="form-control" name="household_income"
-                                                placeholder="Annual household income (USD)" required="required">
-                                        </div>
-                                    </div>
-    
-                                    <div class=" row container">
-                                        <!-- <div class="row"> -->
-                                        <form class="col form-group">
-                                            <label>Select Occupation</label>
-                                            <select class="form-control select2 ">
-                                                <option>Select</option>
-                                                <option class="text-secondary">Cashier</option>
-                                                <option>Teacher</option>
-                                                <option>SWE</option>
-                                                <option>Acountant</option>
-                                                <option>Farmer</option>
-                                            </select>
-                                        </form>
-                                        <!-- </div> -->
-                                    </div>
-                                    <script>
-                                        $('.select2').select2();
-                                    </script>
                                 </div>
-    
-                                <div class="form-group">
-                                    <label class="form-check-label"><input type="checkbox" required="required"> I accept the
-                                        <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+                                <div class="row">
+                                    <div class="col form-group">
+                                        <select class="form-control" id="exampleFormControlSelect1" name="race">
+                                            <option value="" disabled selected>Select Race</option>
+                                            <option>American Indian or Alaska Native</option>
+                                            <option>Asian</option>
+                                            <option>Black or African American</option>
+                                            <option> Native Hawaiian or Other Pacific Islander</option>
+                                            <option>White</option>
+                                            <option>Prefer not to say</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                <div class="row">
+                                    <div class="col form-group">
+                                        <input type="int" class="form-control" name="zip_code" placeholder="Zip Code"
+                                            required="required">
+                                    </div>
                                 </div>
-                            </form>
+                                <div class="row">
+                                    <div class="col form-group">
+                                        <input type="float" class="form-control" name="household_income"
+                                            placeholder="Annual household income (USD)" required="required">
+                                    </div>
+                                </div>
+
+                                <div class=" row container">
+                                    <!-- <div class="row"> -->
+                                    <form class="col form-group">
+                                        <label>Select Occupation</label>
+                                        <select class="form-control select2 ">
+                                            <option>Select</option>
+                                            <option class="text-secondary">Cashier</option>
+                                            <option>Teacher</option>
+                                            <option>SWE</option>
+                                            <option>Acountant</option>
+                                            <option>Farmer</option>
+                                        </select>
+                                    </form>
+                                    <!-- </div> -->
+                                </div>
+                                <script>
+                                    $('.select2').select2();
+                                </script>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-check-label"><input type="checkbox" required="required"> I accept
+                                    the
+                                    <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                            <div id="save-loader" class="loader hide-loader"></div>
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
 
 <!-- Predica Score Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Predica Score Breakdown</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+<div class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="predica-score" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Predica Score Breakdown and Analysis</h4>
+                </div>
+                <div class="modal-body">
+                    {% if session['score'] %}
+                    {% if session['score'] < 36 %} <p>You're in the Unsafe Zone</p>
+                        <ul>
+                            <li>How we got the score</li>
+                            <li>Implications
+                                <ul>
+                                    <li>You have to work on developing your housing security profile</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        {% elif session['score'] > 35 and session['score'] < 60 %} <p>You're in the Low Risk Zone</p>
+                            <ul>
+                                <li>How we got the score</li>
+                                <li>Implications
+                                    <ul>
+                                        <li>Need to maintain or improve your housing security score.</li>
+                                        <li>How to maintain and improve your score.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            {% else %}
+                            <p>You're in the Safe Zone</p>
+                            <ul>
+                                <li>How we got the score</li>
+                                <li>Implications
+                                    <ul>
+                                        <li>You are doing a great job</li>
+                                        <li>How to maintain and improve your score</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            {% endif %}
+                            {% else %}
+                            <p>No Score to show - update your details.</p>
+                            {% endif %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Insights Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Insights</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+<div class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="predica-insights" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Insights</h4>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>
+                            Projections
+                        </li>
+                        <li>
+                            Future housing stats
+                        </li>
+                        <li>Investing in housing security</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Personalized Alerts Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Customize Alerts</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+<div class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="predica-alerts" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Personalized Alerts.</h4>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>My Alerts
+                            <ul>
+                                <li>Year 1</li>
+                                <li>Year 2</li>
+                                <li>Year 3</li>
+                                <li>...</li>
+                            </ul>
+                        </li>
+                        <li>Add Alert</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Community Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Community</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+<div class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="predica-community" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Community</h4>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>All Communities</li>
+                        <li>My Communities</li>
+                        <li>Messages</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Personalized Notes -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Notes and Archives</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>l
-            </div>
-            <div class="modal-body">
-                <ul>
-                    <li>
-                        Saved Notes
-                    </li>
-                </ul>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+<!-- Notes and Saved Items Modal -->
+<div class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="predica-notes" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Notes and Saved Items</h4>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>Notes</li>
+                        <li>Saved Insights</li>
+                        <li>Predica Score History</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>

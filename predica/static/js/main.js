@@ -170,6 +170,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /**
+   * Loader
+   */
+document.getElementById('save-loader').addEventListener('click', () => {
+  document.getElementById('save-loader').classList.remove('hide-loader');
+});
+
+  /**
    * Animation on scroll function and init
    */
   function aos_init() {
