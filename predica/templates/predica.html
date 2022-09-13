@@ -11,24 +11,23 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li>
-                    <a class="nav-link scrollto" href="index.html#dashboard">Dashboard</a>
-                </li>
+                <li><a href="/">Home</a></li>
+                <li><a class="nav-link scrollto" href="index.html#dashboard">Dashboard</a></li>
+                <li><a class="nav-link scrollto" href="{{url_for('views.logout')}}"></a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle d-none"></i>
         </nav>
         <!-- .navbar -->
 
         <!-- The Image Icon -->
-        <a class="round-button-circle btn-getstarted scrollto" href="#">{{name}}</a>
+        <a class="round-button-circle btn-getstarted scrollto" href="#">Profile</a>
     </div>
 </header>
 <!-- End Header -->
 
 <section id="hero-animated" class="hero-animated d-flex align-items-center">
     <div class="col-xl-12 col-lg-12 text-center">
-        <h1>Welcome, {{name}}!</h1>
+        <h1>Welcome {{ session['name'] }}!</h1>
     </div>
 </section>
 
@@ -41,6 +40,19 @@
                 <h2>Dashboard</h2>
                 <p></p>
             </div>
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-success alert-dismissable" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                    <span aria-hidden="true">x</span>
+                </button>
+                {{message}}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
 
             <div class="row gy-5 dashboard-row">
                 <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
@@ -173,92 +185,84 @@
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Predica Info</h4>
-                </div>
                 <div class="modal-body">
-                    <form action="{{url_for('views.index')}}" method="POST">
-                        <form action="predica.html" method="POST">
-                            <h2>Please provide the following details</h2>
-                            <p>Please fill in this form to create create a Predica Profile</p>
-                            <hr>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col form-group">
-                                        <select class="form-control" id="exampleFormControlSelect1" name="gender">
-                                            <option disabled selected>Select gender</option>
-                                            <option>Female</option>
-                                            <option>Male</option>
-                                            <option>Prefer not to say</option>
-                                        </select>
-                                    </div>
+                    <form action="{{url_for('views.simulate')}}" method="POST">
+                        <p>Please fill in this form to create create a Predica Profile</p>
+                        <hr>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label>Years:</label>
+                                    <input type="number" min="0" step="1" class="form-control" name="number_of_years"
+                                        value="10">
                                 </div>
-                                <div class="row">
-                                    <div class="col form-group">
-                                        <select class="form-control" id="exampleFormControlSelect1" name="race">
-                                            <option value="" disabled selected>Select Race</option>
-                                            <option>American Indian or Alaska Native</option>
-                                            <option>Asian</option>
-                                            <option>Black or African American</option>
-                                            <option> Native Hawaiian or Other Pacific Islander</option>
-                                            <option>White</option>
-                                            <option>Prefer not to say</option>
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label>Gender:</label>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="gender">
+                                        <option value="" disabled selected>select</option>
+                                        <option>Female</option>
+                                        <option>Male</option>
+                                        <option>Prefer not to say</option>
+                                    </select>
                                 </div>
-                                <div class="row">
-                                    <div class="col form-group">
-                                        <input type="int" class="form-control" name="zip_code" placeholder="Zip Code"
-                                            required="required">
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label>Race:</label>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="race">
+                                        <option value="" disabled selected>select</option>
+                                        <option>American Indian or Alaska Native</option>
+                                        <option>Asian</option>
+                                        <option>Black or African American</option>
+                                        <option> Native Hawaiian or Other Pacific Islander</option>
+                                        <option>White</option>
+                                        <option>Prefer not to say</option>
+                                    </select>
                                 </div>
-                                <div class="row">
-                                    <div class="col form-group">
-                                        <input type="float" class="form-control" name="household_income"
-                                            placeholder="Annual household income (USD)" required="required">
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label>Zip Code:</label>
+                                    <input type="text" class="form-control" name="zip_code" required="required">
                                 </div>
-
-                                <div class=" row container">
-                                    <!-- <div class="row"> -->
-                                    <form class="col form-group">
-                                        <label>Select Occupation</label>
-                                        <select class="form-control select2 ">
-                                            <option>Select</option>
-                                            <option class="text-secondary">Cashier</option>
-                                            <option>Teacher</option>
-                                            <option>SWE</option>
-                                            <option>Acountant</option>
-                                            <option>Farmer</option>
-                                        </select>
-                                    </form>
-                                    <!-- </div> -->
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <label>Annual household income (USD):</label>
+                                    <input type="float" class="form-control" name="household_income"
+                                        required="required">
                                 </div>
-                                <script>
-                                    $('.select2').select2();
-                                </script>
                             </div>
 
-                            <div class="form-group">
-                                <label class="form-check-label"><input type="checkbox" required="required"> I accept
-                                    the
-                                    <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+                            <div class="row">
+                                <!-- <div class="row"> -->
+                                <div class="col form-group">
+                                    <label>Occupation:</label>
+                                    <input type="text" class="form-control" name="occupation"
+                                        required="required">
+                                </div>
+                                <!-- </div> -->
                             </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Save</button>
-                            </div>
-                            <div id="save-loader" class="loader hide-loader"></div>
-                        </form>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
+
+                        <div class="form-group">
+                            <label class="form-check-label"><input type="checkbox" required="required"> I accept the
+                                <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <div id="save-loader" class="loader hide-loader"></div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
 <!-- Predica Score Modal -->
 <div class="container">
     <!-- Modal -->
@@ -313,7 +317,6 @@
             </div>
         </div>
     </div>
-</div>
 
 <!-- Insights Modal -->
 <div class="container">
@@ -343,8 +346,6 @@
             </div>
         </div>
     </div>
-</div>
-
 <!-- Personalized Alerts Modal -->
 <div class="container">
     <!-- Modal -->
@@ -371,11 +372,11 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 <!-- Community Modal -->
 <div class="container">
@@ -401,7 +402,6 @@
             </div>
         </div>
     </div>
-</div>
 
 <!-- Notes and Saved Items Modal -->
 <div class="container">
@@ -427,7 +427,6 @@
             </div>
         </div>
     </div>
-</div>
 
-<!-- End #main -->
-{% endblock %}
+    <!-- End #main -->
+    {% endblock %}
