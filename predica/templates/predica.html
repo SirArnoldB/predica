@@ -13,14 +13,13 @@
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a class="nav-link scrollto" href="index.html#dashboard">Dashboard</a></li>
-                <li><a class="nav-link scrollto" href="{{url_for('views.logout')}}"></a></li>
+                <li><a class="nav-link scrollto" href="{{url_for('views.logout')}}">Logout</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle d-none"></i>
         </nav>
         <!-- .navbar -->
 
         <!-- The Image Icon -->
-        <a class="round-button-circle btn-getstarted scrollto" href="#">Profile</a>
     </div>
 </header>
 <!-- End Header -->
@@ -240,8 +239,7 @@
                                 <!-- <div class="row"> -->
                                 <div class="col form-group">
                                     <label>Occupation:</label>
-                                    <input type="text" class="form-control" name="occupation"
-                                        required="required">
+                                    <input type="text" class="form-control" name="occupation" required="required">
                                 </div>
                                 <!-- </div> -->
                             </div>
@@ -263,20 +261,21 @@
             </div>
         </div>
     </div>
-<!-- Predica Score Modal -->
-<div class="container">
-    <!-- Modal -->
-    <div class="modal fade" id="predica-score" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Predica Score Breakdown and Analysis</h4>
-                </div>
-                <div class="modal-body">
-                    {% if session['score'] %}
-                    {% if session['score'] < 36 %} <p>You're in the Unsafe Zone</p>
+    <!-- Predica Score Modal -->
+    <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="predica-score" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Predica Score Breakdown and Analysis</h4>
+                    </div>
+                    <div class="modal-body">
+                        {% if session['score'] %}
+                        {% if session['score'] == 4 %}
+                        <p>Your score range is 1 - 25. You're in the Unsafe Zone</p>
                         <ul>
                             <li>How we got the score</li>
                             <li>Implications
@@ -285,148 +284,161 @@
                                 </ul>
                             </li>
                         </ul>
-                        {% elif session['score'] > 35 and session['score'] < 60 %} <p>You're in the Low Risk Zone</p>
+                        {% elif session['score'] == 3 %}
+                        <p>Your score range is 26 - 50. You're in the High Risk Zone</p>
+                        <ul>
+                            <li>How we got the score</li>
+                            <li>Implications
+                                <ul>
+                                    <li>Need to maintain or improve your housing security score.</li>
+                                    <li>How to maintain and improve your score.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        {% elif session['score'] == 2 %}
+                        <p>Your score range is 51 - 75. You're in the Low Risk Zone</p>
+                        <ul>
+                            <li>How we got the score</li>
+                            <li>Implications
+                                <ul>
+                                    <li>Need to maintain or improve your housing security score.</li>
+                                    <li>How to maintain and improve your score.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        {% else %}
+                        <p>Your score range is 76 - 100.You're in the Safe Zone</p>
+                        <ul>
+                            <li>How we got the score</li>
+                            <li>Implications
+                                <ul>
+                                    <li>You are doing a great job</li>
+                                    <li>How to maintain and improve your score</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        {% endif %}
+                        {% else %}
+                        <p>No Score to show - update your details.</p>
+                        {% endif %}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Insights Modal -->
+        <div class="container">
+            <!-- Modal -->
+            <div class="modal fade" id="predica-insights" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Insights</h4>
+                        </div>
+                        <div class="modal-body">
                             <ul>
-                                <li>How we got the score</li>
-                                <li>Implications
-                                    <ul>
-                                        <li>Need to maintain or improve your housing security score.</li>
-                                        <li>How to maintain and improve your score.</li>
-                                    </ul>
+                                <li>
+                                    Projections
                                 </li>
-                            </ul>
-                            {% else %}
-                            <p>You're in the Safe Zone</p>
-                            <ul>
-                                <li>How we got the score</li>
-                                <li>Implications
-                                    <ul>
-                                        <li>You are doing a great job</li>
-                                        <li>How to maintain and improve your score</li>
-                                    </ul>
+                                <li>
+                                    Future housing stats
                                 </li>
+                                <li>Investing in housing security</li>
                             </ul>
-                            {% endif %}
-                            {% else %}
-                            <p>No Score to show - update your details.</p>
-                            {% endif %}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+            <!-- Personalized Alerts Modal -->
+            <div class="container">
+                <!-- Modal -->
+                <div class="modal fade" id="predica-alerts" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Personalized Alerts.</h4>
+                            </div>
+                            <div class="modal-body">
+                                <ul>
+                                    <li>My Alerts
+                                        <ul>
+                                            <li>Year 1</li>
+                                            <li>Year 2</li>
+                                            <li>Year 3</li>
+                                            <li>...</li>
+                                        </ul>
+                                    </li>
+                                    <li>Add Alert</li>
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-<!-- Insights Modal -->
-<div class="container">
-    <!-- Modal -->
-    <div class="modal fade" id="predica-insights" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Insights</h4>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <ul>
-                        <li>
-                            Projections
-                        </li>
-                        <li>
-                            Future housing stats
-                        </li>
-                        <li>Investing in housing security</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-<!-- Personalized Alerts Modal -->
-<div class="container">
-    <!-- Modal -->
-    <div class="modal fade" id="predica-alerts" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Personalized Alerts.</h4>
-                </div>
-                <div class="modal-body">
-                    <ul>
-                        <li>My Alerts
-                            <ul>
-                                <li>Year 1</li>
-                                <li>Year 2</li>
-                                <li>Year 3</li>
-                                <li>...</li>
-                            </ul>
-                        </li>
-                        <li>Add Alert</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-                </div>
-            </div>
-        </div>
-    </div>
+                <!-- Community Modal -->
+                <div class="container">
+                    <!-- Modal -->
+                    <div class="modal fade" id="predica-community" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Community</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <ul>
+                                        <li>All Communities</li>
+                                        <li>My Communities</li>
+                                        <li>Messages</li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-<!-- Community Modal -->
-<div class="container">
-    <!-- Modal -->
-    <div class="modal fade" id="predica-community" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Community</h4>
-                </div>
-                <div class="modal-body">
-                    <ul>
-                        <li>All Communities</li>
-                        <li>My Communities</li>
-                        <li>Messages</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <!-- Notes and Saved Items Modal -->
+                    <div class="container">
+                        <!-- Modal -->
+                        <div class="modal fade" id="predica-notes" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Notes and Saved Items</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <ul>
+                                            <li>Notes</li>
+                                            <li>Saved Insights</li>
+                                            <li>Predica Score History</li>
+                                        </ul>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-<!-- Notes and Saved Items Modal -->
-<div class="container">
-    <!-- Modal -->
-    <div class="modal fade" id="predica-notes" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Notes and Saved Items</h4>
-                </div>
-                <div class="modal-body">
-                    <ul>
-                        <li>Notes</li>
-                        <li>Saved Insights</li>
-                        <li>Predica Score History</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- End #main -->
-    {% endblock %}
+                        <!-- End #main -->
+                        {% endblock %}
